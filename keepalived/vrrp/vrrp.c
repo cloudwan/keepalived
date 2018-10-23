@@ -2614,10 +2614,6 @@ vrrp_complete_instance(vrrp_t * vrrp)
 	vrrp->total_priority = vrrp->base_priority;
 
 	if (vrrp->wantstate == VRRP_STATE_MAST) {
-		if (vrrp->nopreempt) {
-			report_config_error(CONFIG_GENERAL_ERROR, "(%s) Warning - nopreempt will not work with initial state MASTER - clearing", vrrp->iname);
-			vrrp->nopreempt = false;
-		}
 		if (vrrp->preempt_delay) {
 			report_config_error(CONFIG_GENERAL_ERROR, "(%s) Warning - preempt delay will not work with initial state MASTER - clearing", vrrp->iname);
 			vrrp->preempt_delay = false;

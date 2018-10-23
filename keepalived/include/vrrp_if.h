@@ -176,5 +176,6 @@ extern void interface_down(interface_t *);
 extern void cleanup_lost_interface(interface_t *);
 extern int recreate_vmac_thread(thread_t *);
 extern void update_added_interface(interface_t *);
+extern int get_master_ifindex(interface_t *);
 
 #endif
