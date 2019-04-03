@@ -1027,6 +1027,7 @@ vrrp_script_child_thread(thread_t * thread)
 					 * has just terminated. We should get
 					 * notification of it's termination, so allow
 					 * that to handle it. */
+					log_message(LOG_INFO, "process does not exist: set timeout to 1");
 					timeout = 1;
 				} else {
 					log_message(LOG_INFO, "kill -%d of process %s(%d) with new state %d failed with errno %d", sig_num, vscript->script.args[0], pid, vscript->state, errno);
