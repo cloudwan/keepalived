@@ -4,11 +4,13 @@ PACKAGE=`pwd`
 PACKAGE=`basename $PACKAGE`
 VERSION=${PACKAGE_VERSION:='1.0-1'}
 PKGDIR=${PACKAGE}_${VERSION}
+
 NEWLINE=$'\n'
 DESCRIPTION="esi-keepalived${NEWLINE} Keepalived 2.0.7 modified for ESI"
 if [ ! -z ${PACKAGE_COMMIT} ]; then
   DESCRIPTION="${DESCRIPTION}${NEWLINE} Commit:${PACKAGE_COMMIT}"
 fi
+
 if [ ! -f /usr/bin/automake ]; then
   echo "Error: no automake. Run: sudo apt-get install -y automake" 1>&2 
   exit 1
