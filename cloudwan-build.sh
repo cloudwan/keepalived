@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 PACKAGE=`pwd`
 PACKAGE=`basename $PACKAGE`
