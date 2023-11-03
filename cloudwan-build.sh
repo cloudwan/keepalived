@@ -5,6 +5,10 @@ PACKAGE=`basename $PACKAGE`
 VERSION=1.0-1
 PKGDIR=${PACKAGE}_${VERSION}
 
+if [ -z $PACKAGE_COMMIT ]; then
+PACKAGE_COMMIT=`git rev-parse HEAD`
+fi
+
 if [ ! -f /usr/bin/automake ]; then
   echo "Error: no automake. Run: sudo apt-get install -y automake" 1>&2 
   exit 1
@@ -38,5 +42,6 @@ Architecture: amd64
 Maintainer: NTT Innovation Institute, Inc. <support@ntti3.com>
 Description: esi-keepalived
  Keepalived 2.0.7 modified for ESI
+ Commit: $PACKAGE_COMMIT
 EOF
 dpkg-deb --build $PKGDIR
